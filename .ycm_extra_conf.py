@@ -54,6 +54,7 @@ flags = [
 '-isystem', '../llvm/tools/clang/include',
 '-I', '/usr/local/opt/openssl/include',
 '-I', './include/ecdsa',
+'-I', './googletest/googletest/include',
 ]
 
 
