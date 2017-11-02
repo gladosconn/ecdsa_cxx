@@ -7,6 +7,8 @@
 
 #include "secp256k1.h"
 
+#include "pub_key.h"
+
 namespace ecdsa {
 
 class Key {
@@ -36,6 +38,13 @@ class Key {
    * @return Returns true if current private key is valid.
    */
   bool VerifyKey() const;
+
+  /**
+   * @brief Create a public key.
+   *
+   * @return Public key object.
+   */
+  PubKey CreatePubKey() const;
 
   /**
    * @brief Make a signature

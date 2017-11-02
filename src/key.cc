@@ -45,6 +45,10 @@ bool Key::VerifyKey() const {
   return secp256k1_ec_seckey_verify(ctx_, priv_key_data_.data());
 }
 
+PubKey Key::CreatePubKey() const {
+  return PubKey(pub_key_data_);
+}
+
 std::tuple<std::vector<uint8_t>, bool> Key::Sign(
     const std::vector<uint8_t> &hash) const {
   // Make signature.

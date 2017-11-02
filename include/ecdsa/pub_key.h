@@ -10,6 +10,12 @@ namespace ecdsa {
 
 class PubKey {
  public:
+  PubKey(const PubKey &rhs) = delete;
+  PubKey &operator=(const PubKey &rhs) = delete;
+
+  PubKey(PubKey &&rhs);
+  PubKey &operator=(PubKey &&rhs);
+
   /**
    * @brief Create public key object.
    *

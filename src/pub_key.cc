@@ -161,6 +161,25 @@ PubKey::PubKey(const std::vector<uint8_t> &pub_key_data)
   ctx_ = secp256k1_context_create(SECP256K1_CONTEXT_VERIFY);
 }
 
+PubKey::PubKey(PubKey &&rhs) {
+  pub_key_data_.assign(std::begin(rhs.pub_key_data_),
+                       std::end(rhs.pub_key_data_));
+  ctx_ = rhs.ctx_;
+  rhs.pub_key_data_.clear();
+  rhs.ctx_ = nullptr;
+}
+
+PubKey &PubKey::operator=(PubKey &&rhs) {
+  if (this != &rhs) {
+    pub_key_data_.assign(std::begin(rhs.pub_key_data_),
+                         std::end(rhs.pub_key_data_));
+    ctx_ = rhs.ctx_;
+    rhs.pub_key_data_.clear();
+    rhs.ctx_ = nullptr;
+  }
+  return *this;
+}
+
 PubKey::~PubKey() {
   secp256k1_context_destroy(ctx_);
   ctx_ = nullptr;
