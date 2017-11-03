@@ -75,5 +75,73 @@ Running main() from gtest_main.cc
 
 # How to use?
 
-# Test cases
+## Create a new key pair.
+
+Create an object of class `ecdsa::Key` without any parameters will create a key pair, and you are ready to use this key pair to sign message.
+
+```
+#include "ecdsa/key.h"
+
+int main() {
+  // A key object created without any parameters will generate a random key
+  // pair automatically.
+  ecdsa::Key key; 
+
+  // ...
+
+  // Returns
+  return 0;
+}
+```
+
+## Sign a message and verify it.
+
+To signing a message, you need do 2 things.
+
+1. Hash your message and get the hash value.
+2. Signing the hash value with key and get signature.
+
+```
+#include "ecdsa/key.h"
+
+/**
+ * @brief Hash data with SHA512 algorithm.
+ *
+ * @param str Input string data.
+ *
+ * @return Hash value.
+ */
+std::vector<uint8_t> Hash(const std::string &str) {
+  SHA512_CTX ctx;
+  SHA512_Init(&ctx);
+  SHA512_Update(&ctx, str.c_str(), str.size());
+  std::vector<uint8_t> md(SHA512_DIGEST_LENGTH);
+  SHA512_Final(md.data(), &ctx);
+  return md;
+}
+
+const char *HASH_STRING = "Hello world!";
+
+int main() {
+  ecdsa::Key key;
+  std::vector<uint8_t> signature;
+  bool succ;
+  std::tie(signature, succ) = key.Sign(Hash(HASH_STRING));
+  if (succ) {
+    // Signature created succeed, now create a public key object from key.
+    auto pub_key = key.CreatePubKey();
+    // Verify signature.
+    bool verified = pub_key.Verify(Hash(HASH_STRING), signature);
+    if (verified) {
+      // TODO Signature verified
+    }
+  } else {
+    // TODO FAILED!
+  }
+}
+```
+
+# Problems?
+
+If you have any question, please fire an issue or if you have fixed any bug or make any improvement, pull request is very welcomed!
 
