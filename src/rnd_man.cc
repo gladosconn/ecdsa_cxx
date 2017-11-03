@@ -1,5 +1,7 @@
 #include "rnd_man.h"
 
+#include <cstring>
+
 namespace rnd {
 
 RandManager::RandManager(int buff_size) : buff_size_(buff_size) {}
@@ -10,7 +12,7 @@ std::vector<uint8_t> RandManager::End() {
   SHA512_Final(md_, &sha_ctx_);
   std::vector<uint8_t> result;
   result.resize(buff_size_);
-  memcpy(result.data(), md_, buff_size_);
+  std::memcpy(result.data(), md_, buff_size_);
   return result;
 }
 
