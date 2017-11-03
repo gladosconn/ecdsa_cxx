@@ -1,6 +1,7 @@
 #include "base58.h"
 
 #include <cassert>
+#include <cstring>
 
 #include <string>
 #include <vector>
