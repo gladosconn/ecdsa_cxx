@@ -159,6 +159,10 @@ int main() {
 
 If you import a public key, you can use `ecdsa::PubKey` object to verify a signature. Create a `ecdsa::PubKey` object with public key data will import public key to key object.
 
+## Base58 support.
+
+ECDSA++ includes base58 module (Which is import from bitcoin-core project), include "base58.h" to get base58 support. See "test/test.cc" for more information.
+
 # Problems?
 
 If you have any question, please fire an issue or if you have fixed any bug or make any improvement, pull request is very welcomed!
