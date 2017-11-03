@@ -1,6 +1,6 @@
 language: c++
 sudo: false
-script: cmake . && make
+script: cd secp256k1 && ./autogen.sh && ./configure && make && make install && cd .. && cmake . && make
 addons:
   apt:
     packages:
