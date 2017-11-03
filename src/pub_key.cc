@@ -1,5 +1,7 @@
 #include "pub_key.h"
 
+#include <cstring>
+
 namespace ecdsa {
 
 /** This function is taken from the libsecp256k1 distribution and implements
@@ -128,7 +130,7 @@ static int ecdsa_signature_parse_der_lax(const secp256k1_context *ctx,
   if (rlen > 32) {
     overflow = 1;
   } else {
-    memcpy(tmpsig + 32 - rlen, input + rpos, rlen);
+    std::memcpy(tmpsig + 32 - rlen, input + rpos, rlen);
   }
 
   /* Ignore leading zeroes in S */
@@ -140,7 +142,7 @@ static int ecdsa_signature_parse_der_lax(const secp256k1_context *ctx,
   if (slen > 32) {
     overflow = 1;
   } else {
-    memcpy(tmpsig + 64 - slen, input + spos, slen);
+    std::memcpy(tmpsig + 64 - slen, input + spos, slen);
   }
 
   if (!overflow) {
@@ -149,7 +151,7 @@ static int ecdsa_signature_parse_der_lax(const secp256k1_context *ctx,
   if (overflow) {
     /* Overwrite the result again with a correctly-parsed but invalid
        signature if parsing failed. */
-    memset(tmpsig, 0, 64);
+    std::memset(tmpsig, 0, 64);
     secp256k1_ecdsa_signature_parse_compact(ctx, sig, tmpsig);
   }
   return 1;
