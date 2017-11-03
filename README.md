@@ -19,30 +19,30 @@
 
 ### MacOS
 
-* 1. Ensure you have installed Xcode command-line toolset.
+1. Ensure you have installed Xcode command-line toolset.
 ```
 xcode-select --install
 ```
 
-* 2. You need install CMake and Make toolset, install them by using [brew](https://brew.sh) is a good idea.
+2. You need install CMake and Make toolset, install them by using [brew](https://brew.sh) is a good idea.
 ```
 brew install cmake
 
 ```
 
-* 3. Clone ECDSA++ source code.
+3. Clone ECDSA++ source code.
 ```
 git clone https://github.com/gladosconn/ecdsa_cxx
 ```
 
-* 4. Compile library secp256k1.
+4. Compile library secp256k1.
 ```
 cd ecdsa_cxx/secp256k1
 ./autogen.sh && ./configure
 make
 ```
 
-* 5. Compile ECDSA++
+5. Compile ECDSA++
 ```
 cd ..
 mkdir build
@@ -51,7 +51,7 @@ OPENSSL_ROOT_DIR=/usr/local/opt/openssl cmake ..
 make
 ```
 
-* 6. Run test
+6. Run test
 ```
 ./ecdsa_test
 ```
