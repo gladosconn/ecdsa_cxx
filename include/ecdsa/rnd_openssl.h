@@ -3,8 +3,9 @@
 
 #include <openssl/rand.h>
 
-#include <vector>
+#include <cstdint>
 #include <cstring>
+#include <vector>
 
 namespace rnd {
 
