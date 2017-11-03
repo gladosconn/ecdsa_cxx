@@ -1,6 +1,10 @@
 language: c++
 sudo: false
 script: cmake . & make
+addons:
+  apt:
+    packages:
+      - cmake
 compiler:
   - clang++
   - g++
