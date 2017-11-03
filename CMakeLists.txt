@@ -35,3 +35,7 @@ file(GLOB ecdsa_test "./test/test.cc")
 add_executable(ecdsa_test ${src} ${gtest} ${ecdsa_test})
 
 target_link_libraries(ecdsa_test ${OPENSSL_LIBRARIES} ${SECP256K1} ${PTHREAD})
+
+install(DIRECTORY "include/ecdsa" DESTINATION "include")
+install(TARGETS ecdsa++ DESTINATION lib)
+
