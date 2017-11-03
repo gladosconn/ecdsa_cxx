@@ -142,6 +142,23 @@ int main() {
 }
 ```
 
+## Import private key.
+
+Import private key data is easy. Just construct a object of `ecdsa::Key` with key data vector.
+
+```
+int main() {
+  std::vector<uint8_t> priv_key_data;
+  // TODO Reading private key data to priv_key_data, ...
+  ecdsa::Key key(priv_key_data); // Construct key object with priv_key_data.
+  // TODO Use key to signing
+}
+```
+
+## Import public key.
+
+If you import a public key, you can use `ecdsa::PubKey` object to verify a signature. Create a `ecdsa::PubKey` object with public key data will import public key to key object.
+
 # Problems?
 
 If you have any question, please fire an issue or if you have fixed any bug or make any improvement, pull request is very welcomed!
