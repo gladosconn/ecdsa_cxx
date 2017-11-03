@@ -33,6 +33,14 @@ class Key {
   /// Destructor.
   ~Key();
 
+  /// Get private key data.
+  const std::vector<uint8_t> &get_priv_key_data() const {
+    return priv_key_data_;
+  }
+
+  /// Get public key data.
+  const std::vector<uint8_t> &get_pub_key_data() const { return pub_key_data_; }
+
   /**
    * @brief Verify key is valid or not.
    *

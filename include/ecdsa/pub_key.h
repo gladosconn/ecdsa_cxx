@@ -26,6 +26,9 @@ class PubKey {
   /// Destructor.
   ~PubKey();
 
+  /// Get public key data.
+  const std::vector<uint8_t> &get_pub_key_data() const { return pub_key_data_; }
+
   /**
    * @brief Verify signature.
    *
