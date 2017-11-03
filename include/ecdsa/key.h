@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include <string>
+#include <tuple>
 #include <vector>
 
 #include "secp256k1.h"
