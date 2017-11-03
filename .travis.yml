@@ -1,6 +1,6 @@
 language: c++
-sudo: true
-script: cd secp256k1 && ./autogen.sh && ./configure && make && make install && cd .. && cmake . && make
+sudo: false
+script: cd secp256k1 && ./autogen.sh && ./configure && make && cd .. && cmake . && make
 addons:
   apt:
     packages:

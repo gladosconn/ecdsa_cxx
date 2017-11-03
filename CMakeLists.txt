@@ -5,9 +5,12 @@ project(ecdsa++)
 set(CMAKE_MACOSX_RPATH 1)
 
 find_package(OpenSSL REQUIRED)
-find_library(SECP256K1 secp256k1)
+find_library(SECP256K1 secp256k1 PATHS "./secp256k1")
 
 include_directories(
+  "/usr/include"
+  "/usr/local/include"
+  "./secp256k1/include"
   "./include/ecdsa"
   "./googletest/googletest"
   "./googletest/googletest/include"
