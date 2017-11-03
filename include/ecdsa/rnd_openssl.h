@@ -4,6 +4,7 @@
 #include <openssl/rand.h>
 
 #include <vector>
+#include <cstring>
 
 namespace rnd {
 
@@ -16,7 +17,7 @@ class Rand_OpenSSL {
     memset(buff_, 0, BUFF_SIZE);
     int64_t counter = GetPerformanceCounter();
     RAND_add(&counter, sizeof(counter), 1.5);
-    memset(&counter, 0, sizeof(counter));
+    std::memset(&counter, 0, sizeof(counter));
   }
 
   const uint8_t *get_buff() const { return buff_; }
