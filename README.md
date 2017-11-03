@@ -56,6 +56,23 @@ make
 ./ecdsa_test
 ```
 
+General, test program will show results like below
+
+```
+Running main() from gtest_main.cc
+[==========] Running 2 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 2 tests from Signature
+[ RUN      ] Signature.Sign
+[       OK ] Signature.Sign (0 ms)
+[ RUN      ] Signature.Verify
+[       OK ] Signature.Verify (19 ms)
+[----------] 2 tests from Signature (19 ms total)
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test case ran. (19 ms total)
+[  PASSED  ] 2 tests.
+```
+
 # How to use?
 
 # Test cases
