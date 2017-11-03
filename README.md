@@ -102,6 +102,7 @@ To signing a message, you need do 2 things.
 2. Signing the hash value with key and get signature.
 
 ```
+#include <openssl/sha.h>
 #include "ecdsa/key.h"
 
 /**
