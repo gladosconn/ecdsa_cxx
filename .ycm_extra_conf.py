@@ -47,6 +47,8 @@ flags = [
 '-isystem', '/usr/include/x86_64-linux-gnu/c++/4.9/',
 '-isystem', '/usr/include/c++/4.8/',
 '-isystem', '/usr/include/x86_64-linux-gnu/c++/4.8/',
+'-isystem', '/usr/include/c++/6/',
+'-isystem', '/usr/include/x86_64-linux-gnu/c++/6/',
 '-isystem', '/usr/local/include',
 '-isystem', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include',
 '-isystem', '/System/Library/Frameworks/Python.framework/Headers',
@@ -54,6 +56,7 @@ flags = [
 '-isystem', '../llvm/tools/clang/include',
 '-I', '/usr/local/opt/openssl/include',
 '-I', './include/ecdsa',
+'-I', './secp256k1/include',
 '-I', './googletest/googletest/include',
 ]
 
