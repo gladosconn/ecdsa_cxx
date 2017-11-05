@@ -5,7 +5,7 @@ project(ecdsa++)
 set(CMAKE_MACOSX_RPATH 1)
 
 find_package(OpenSSL REQUIRED)
-find_library(SECP256K1 secp256k1 PATHS "./secp256k1/.libs")
+find_library(SECP256K1 secp256k1 PATHS "/usr/lib" "/usr/local/lib" "./secp256k1/.libs")
 find_library(PTHREAD pthread)
 
 include_directories(
