@@ -1,6 +1,6 @@
 language: c++
 sudo: false
-script: git clone https://github.com/bitcoin-core/secp256k1.git && cd secp256k1 && ./autogen.sh && ./configure && make && make install && cd .. && cmake . && make && ./ecdsa_test
+script: git clone https://github.com/bitcoin-core/secp256k1.git && cd secp256k1 && ./autogen.sh && ./configure && make && cd .. && cmake . && make && ./ecdsa_test
 addons:
   apt:
     packages:
