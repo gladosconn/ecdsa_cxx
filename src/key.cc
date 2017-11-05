@@ -32,6 +32,8 @@ Key::Key(const std::vector<uint8_t> &priv_key_data)
     : priv_key_data_(priv_key_data) {
   // Create secp256k1 context.
   ctx_ = secp256k1_context_create(SECP256K1_CONTEXT_SIGN);
+  // Calculate public key from private key.
+  CalculatePublicKey(true);
 }
 
 Key::~Key() {
