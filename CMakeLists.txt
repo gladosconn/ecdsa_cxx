@@ -12,7 +12,7 @@ include_directories(
   "/usr/include"
   "/usr/local/include"
   "./secp256k1/include"
-  "./include/ecdsa"
+  "./src"
   "./googletest/googletest"
   "./googletest/googletest/include"
   ${OPENSSL_INCLUDE_DIR}
@@ -36,6 +36,5 @@ add_executable(ecdsa_test ${src} ${gtest} ${ecdsa_test})
 
 target_link_libraries(ecdsa_test ${OPENSSL_LIBRARIES} ${SECP256K1} ${PTHREAD})
 
-install(DIRECTORY "include/ecdsa" DESTINATION "include")
+install(DIRECTORY "src/" DESTINATION "include/ecdsa" FILES_MATCHING PATTERN "*.h")
 install(TARGETS ecdsa++ DESTINATION lib)
-
