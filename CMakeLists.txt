@@ -19,6 +19,7 @@ include_directories(
   )
 
 set(CMAKE_CXX_FLAGS "-std=c++11")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
 
 file(GLOB src "./src/*.cc")
 

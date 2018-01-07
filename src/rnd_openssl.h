@@ -3,8 +3,10 @@
 
 #include <openssl/rand.h>
 
+#include <cassert>
 #include <cstdint>
 #include <cstring>
+
 #include <vector>
 
 namespace rnd {
@@ -24,7 +26,7 @@ class Rand_OpenSSL {
   const uint8_t *get_buff() const { return buff_; }
   int get_buff_size() const { return BUFF_SIZE; }
 
-  void Rand() { RAND_bytes(buff_, BUFF_SIZE); }
+  void Rand() { assert(RAND_bytes(buff_, BUFF_SIZE) == 1); }
 
  private:
   uint8_t buff_[BUFF_SIZE];
